@@ -14,7 +14,7 @@ set $mod Mod4
 set $bg-color			"#1b2023"
 set $inactive-bg-color 		"#455258"
 set $text-color 		"#e2e8c6"
-set $inactive-text-color	"#4c4b49"
+set $inactive-text-color	"#c2c6b3"
 set $urgent-bg-color		"#c3a600"
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -33,9 +33,11 @@ font pango:System San Francisco 8
 floating_modifier $mod
 
 # Program keybindings
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec xfce4-terminal
 bindsym $mod+shift+w exec palemoon
 bindsym $mod+t exec /opt/sublime_text/sublime_text
+bindsym $mod+shift+f exec thunar
+bindsym $mod+shift+s exec skippy-xd
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -63,7 +65,7 @@ bindsym $mod+semicolon focus right
 
 # Floating windows
 for_window [class="Thunar"] floating enable
-
+for_window [class="gloobus*"] floating enable
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
@@ -102,8 +104,6 @@ bindsym $mod+Shift+space floating toggle
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
-# focus the parent container
-bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
@@ -168,7 +168,7 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command  i3blocks -c ~/.i3
+        status_command  i3blocks -c ~/.files/.i3blocks
 }
 
 # Border stuff
