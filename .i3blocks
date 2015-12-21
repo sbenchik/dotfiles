@@ -23,6 +23,10 @@
 # Global properties
 separator_block_width=15
 
+[weather]
+command=/usr/share/i3blocks/weather "NAM|US|IN|SOUTH BEND"
+interval=60
+
 [volume]
 label=
 #label=♪
