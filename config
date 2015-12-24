@@ -175,16 +175,17 @@ bar {
         status_command  i3blocks -c ~/.files/.i3blocks
 }
 
-# Border stuff
+# Border/gap stuff
 hide_edge_borders both
-smart_borders on
-new_window normal
+#smart_borders on
+new_window none
 smart_gaps on
+gaps inner 8
 
 # Startup programs
 exec --no-startup-id dunst
 exec_always --no-startup-id feh --bg-scale ~/wall.png
-exec_always --no-startup-id compton -f
+exec_always --no-startup-id compton -f --config ~/.files/compton.conf
 exec --no-startup-id nm-applet
 
 # volume control (Win + F2 or Win + F3)

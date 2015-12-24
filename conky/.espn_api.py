@@ -120,6 +120,6 @@ def get_scores(league,team_filter=None):
 
         return scores
 
-scores = get_scores(NCAA_FB, "BYU, Ohio, Georgia State, Arizona, Arkansas State")
+scores = get_scores(NFL)
 for keys in scores.items():
     print keys
