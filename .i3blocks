@@ -24,8 +24,7 @@
 separator_block_width=15
 
 [weather]
-command=/usr/share/i3blocks/weather
-instance=4926563
+command=/usr/share/i3blocks/weather 46616
 interval=60
 
 [volume]

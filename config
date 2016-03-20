@@ -17,13 +17,18 @@ set $text-color 		"#e2e8c6"
 set $inactive-text-color	"#c2c6b3"
 set $urgent-bg-color		"#c3a600"
 
+# Name workspaces
+set $workspace1 "1: "
+set $workspace2 "2: "
+set $workspace3 "3: "
+
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 font pango:System San Francisco 8
 # Before i3 v4.8, we used to recommend this one as the default:
-# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+# ssign [class="Firefox"] $workspace1font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # The font above is very space-efficient, that is, it looks good, sharp and
 # clear in small sizes. However, its unicode glyph coverage is limited, the old
 # X core fonts rendering does not support right-to-left and this being a bitmap
@@ -66,10 +71,15 @@ bindsym $mod+k focus down
 bindsym $mod+l focus up
 bindsym $mod+semicolon focus right
 
-# Floating windows
-for_window [class="Thunar"] floating enable
-for_window [class="Gloobus-preview"] floating enable, border none
+#Assign windows
+assign [class="Pale moon"] $workspace1
 
+# Floating windows
+for_window [class="Thunar"] floating enable, border normal
+for_window [class="lxappearance"] floating enable, border normal
+for_window [class="Gloobus-preview"] floating enable, border none
+for_window [class="Writer"] floating enable, border normal
+for_window [class="sublime_text"] border none
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
@@ -113,9 +123,9 @@ bindsym $mod+space focus mode_toggle
 #bindsym $mod+d focus child
 
 # switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
+bindsym $mod+1 workspace $workspace1
+bindsym $mod+2 workspace $workspace2
+bindsym $mod+3 workspace $workspace3
 bindsym $mod+4 workspace 4
 bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
@@ -125,9 +135,9 @@ bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+1 move container to workspace $workspace1
+bindsym $mod+Shift+2 move container to workspace $workspace2
+bindsym $mod+Shift+3 move container to workspace $workspace3
 bindsym $mod+Shift+4 move container to workspace 4
 bindsym $mod+Shift+5 move container to workspace 5
 bindsym $mod+Shift+6 move container to workspace 6
@@ -187,6 +197,7 @@ exec --no-startup-id dunst
 exec_always --no-startup-id feh --bg-scale ~/wall.png
 exec_always --no-startup-id compton -f --config ~/.files/compton.conf
 exec --no-startup-id nm-applet
+exec --no-startup-id redshift
 
 # volume control (Win + F2 or Win + F3)
 bindcode $mod+68 exec amixer set Master 5%-
