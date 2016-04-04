@@ -48,7 +48,7 @@ bindsym $mod+shift+s exec skippy-xd
 bindsym $mod+Shift+q kill
 
 # start rofi (a program launcher)
-bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 400 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "$urgent-bg-color" -font "System San Francisco Display 18"
+bindsym $mod+d exec rofi -show run -run-shell-command -lines 3 -eh 2 -width 100 -padding 400 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "$urgent-bg-color" -font "System San Francisco Display 18"
 
 # Lock screen
 bindsym $mod+x exec ~/.files/lock.sh
@@ -78,7 +78,7 @@ assign [class="Pale moon"] $workspace1
 for_window [class="Thunar"] floating enable, border normal
 for_window [class="lxappearance"] floating enable, border normal
 for_window [class="Gloobus-preview"] floating enable, border none
-for_window [class="Writer"] floating enable, border normal
+for_window [class="Init.py"] floating enable, border normal
 for_window [class="sublime_text"] border none
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -187,8 +187,8 @@ bar {
 
 # Border/gap stuff
 hide_edge_borders both
-#smart_borders on
 new_window none
+new_float normal
 smart_gaps on
 gaps inner 8
 
@@ -197,7 +197,7 @@ exec --no-startup-id dunst
 exec_always --no-startup-id feh --bg-scale ~/wall.png
 exec_always --no-startup-id compton -f --config ~/.files/compton.conf
 exec --no-startup-id nm-applet
-exec --no-startup-id redshift
+exec --no-startup-id redshift -l 41.6725:-86.255278
 
 # volume control (Win + F2 or Win + F3)
 bindcode $mod+68 exec amixer set Master 5%-
