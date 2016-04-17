@@ -189,8 +189,8 @@ bar {
 hide_edge_borders both
 new_window none
 new_float normal
-smart_gaps on
-gaps inner 8
+#smart_gaps on
+#gaps inner 8
 
 # Startup programs
 exec --no-startup-id dunst
