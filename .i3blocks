@@ -69,11 +69,11 @@ signal=10
 #color=#00FF00
 #interval=10
 
-[cpu]
-label=
-command=/usr/share/i3blocks/cpu_usage
-interval=10
-min_width=100.00 %
+#[cpu]
+#label=
+#command=/usr/share/i3blocks/cpu_usage
+#interval=10
+#min_width=100.00 %
 #separator=false
 
 #[load]
