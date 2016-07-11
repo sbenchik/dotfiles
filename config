@@ -48,7 +48,10 @@ bindsym $mod+shift+s exec skippy-xd
 bindsym $mod+Shift+q kill
 
 # start rofi (a program launcher)
-bindsym $mod+d exec rofi -show run -run-shell-command -lines 3 -eh 2 -width 100 -padding 400 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "$urgent-bg-color" -font "System San Francisco Display 18"
+#bindsym $mod+d exec rofi -show run -run-shell-command -lines 3 -eh 2 -width 100 -padding 400 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "$urgent-bg-color" -font "System San Francisco Display 18"
+
+# start slingscold
+bindsym $mod+d exec slingscold
 
 # Lock screen
 bindsym $mod+x exec ~/.files/lock.sh
@@ -198,6 +201,7 @@ exec_always --no-startup-id feh --bg-scale ~/wall.png
 exec_always --no-startup-id compton -f --config ~/.files/compton.conf
 exec --no-startup-id nm-applet
 exec --no-startup-id redshift -l 41.6725:-86.255278
+exec --no-startup-id preload
 
 # volume control (Win + F2 or Win + F3)
 bindcode $mod+68 exec amixer set Master 5%-
