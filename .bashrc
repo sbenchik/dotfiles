@@ -10,13 +10,16 @@
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
+# script for powerline
+. ~/.files/powerline/bindings/bash/powerline.sh
+
 # set variable identifying the chroot you work in (used in the prompt below)
 if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
 
 # set a fancy prompt (non-color, overwrite the one in /etc/profile)
-PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$\n '
+PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 
 # Commented out, don't overwrite xterm -T "title" -n "icontitle" by default.
 # If this is an xterm set the title to user@host:dir
@@ -66,9 +69,9 @@ if [ -x /usr/lib/command-not-found -o -x /usr/share/command-not-found/command-no
 		fi
 	}
 fi
-. /usr/local/lib/python2.7/dist-packages/powerline/bindings/bash/powerline.sh
 
-alias weather='python ~/Python/weather.py'
+alias weather='curl wttr.in'
+alias gcalcli='gcalcli calm'
 
 export LS_OPTIONS='--classify --group-directories-first --color=auto'
 eval "`dircolors`"

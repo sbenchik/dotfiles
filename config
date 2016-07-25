@@ -50,8 +50,8 @@ bindsym $mod+Shift+q kill
 # start rofi (a program launcher)
 #bindsym $mod+d exec rofi -show run -run-shell-command -lines 3 -eh 2 -width 100 -padding 400 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "$urgent-bg-color" -font "System San Francisco Display 18"
 
-# start slingscold
-bindsym $mod+d exec slingscold
+# start xfdashboard
+bindsym $mod+d exec xfdashboard
 
 # Lock screen
 bindsym $mod+x exec ~/.files/lock.sh
