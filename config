@@ -26,13 +26,7 @@ set $workspace3 "3: "
 # is used in the bar {} block below.
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:System San Francisco 8
-# Before i3 v4.8, we used to recommend this one as the default:
-# ssign [class="Firefox"] $workspace1font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-# The font above is very space-efficient, that is, it looks good, sharp and
-# clear in small sizes. However, its unicode glyph coverage is limited, the old
-# X core fonts rendering does not support right-to-left and this being a bitmap
-# font, it doesn’t scale on retina/hidpi displays.
+font pango:System San Francisco 8.5
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -48,18 +42,10 @@ bindsym $mod+shift+s exec skippy-xd
 bindsym $mod+Shift+q kill
 
 # start rofi (a program launcher)
-#bindsym $mod+d exec rofi -show run -run-shell-command -lines 3 -eh 2 -width 100 -padding 400 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "$urgent-bg-color" -font "System San Francisco Display 18"
-
-# start xfdashboard
-bindsym $mod+d exec xfdashboard
+bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 300 -opacity "85" -bw 0 -bc "#2d2d2d" -bg "#2d2d2d" -fg "$text-color" -hlbg "#2d2d2d" -hlfg "#66D9EF" -font "System San Francisco Display 18"
 
 # Lock screen
-bindsym $mod+x exec ~/.files/lock.sh
-
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+l exec ~/.files/lock.sh
 
 # Window Colors
 # 				Border			Background		Text			Indicator
@@ -76,13 +62,15 @@ bindsym $mod+semicolon focus right
 
 #Assign windows
 assign [class="Pale moon"] $workspace1
+assign [class="Xfce4-terminal"] $workspace2
 
 # Floating windows
 for_window [class="Thunar"] floating enable, border normal
-for_window [class="lxappearance"] floating enable, border normal
 for_window [class="Gloobus-preview"] floating enable, border none
-for_window [class="Init.py"] floating enable, border normal
+for_window [class="Codex"] floating enable, border normal
 for_window [class="sublime_text"] border none
+for_window [class="Pick"] floating enable
+
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
@@ -192,8 +180,8 @@ bar {
 hide_edge_borders both
 new_window none
 new_float normal
-#smart_gaps on
-#gaps inner 8
+smart_gaps on
+gaps inner 8
 
 # Startup programs
 exec --no-startup-id dunst
@@ -201,7 +189,6 @@ exec_always --no-startup-id feh --bg-scale ~/wall.png
 exec_always --no-startup-id compton -f --config ~/.files/compton.conf
 exec --no-startup-id nm-applet
 exec --no-startup-id redshift -l 41.6725:-86.255278
-exec --no-startup-id preload
 
 # volume control (Win + F2 or Win + F3)
 bindcode $mod+68 exec amixer set Master 5%-
