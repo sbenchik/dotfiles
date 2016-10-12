@@ -18,31 +18,38 @@ set $inactive-text-color	"#c2c6b3"
 set $urgent-bg-color		"#c3a600"
 
 # Name workspaces
-set $workspace1 "1: "
+set $workspace1 "1: "
 set $workspace2 "2: "
-set $workspace3 "3: "
+set $workspace3 "3: "
+set $workspace4 "4: "
+set $workspace5 "5: "
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:System San Francisco 8.5
+font pango:Titillium Web 10
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # Program keybindings
 bindsym $mod+Return exec xfce4-terminal
-bindsym $mod+shift+w exec palemoon
+bindsym $mod+shift+w exec google-chrome-stable
 bindsym $mod+t exec /opt/sublime_text/sublime_text
-bindsym $mod+shift+f exec thunar
+bindsym $mod+shift+f exec nemo
 bindsym $mod+shift+s exec skippy-xd
+bindsym $mod+g exec geary
+bindsym $mod+c exec gnome-calendar
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # start rofi (a program launcher)
-bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 300 -opacity "85" -bw 0 -bc "#2d2d2d" -bg "#2d2d2d" -fg "$text-color" -hlbg "#2d2d2d" -hlfg "#66D9EF" -font "System San Francisco Display 18"
+bindsym $mod+d exec rofi -show run -lines 4 -eh 2 -width 100 -padding 300 -opacity "85" -bw 0 -bc "#2d2d2d" -bg "#2d2d2d" -fg "$text-color" -hlbg "#2d2d2d" -hlfg "#66D9EF" -font "Titillium Web 22"
+
+# start xfdashboard
+bindsym $mod+a exec xfdashboard -t
 
 # Lock screen
 bindsym $mod+l exec ~/.files/lock.sh
@@ -55,21 +62,23 @@ client.unfocused 		$inactive-bg-color      $inactive-bg-color      $inactive-tex
 client.urgent 			$urgent-bg-color	$urgent-bg-color  	$text-color         	$00ff00
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+#bindsym $mod+j focus left
+#bindsym $mod+k focus down
+#bindsym $mod+l focus up
+#bindsym $mod+semicolon focus right
 
 #Assign windows
-assign [class="Pale moon"] $workspace1
+assign [class="Firefox"] $workspace1
 assign [class="Xfce4-terminal"] $workspace2
 
 # Floating windows
-for_window [class="Thunar"] floating enable, border normal
+for_window [class="Nemo"] floating enable, border normal
+for_window [class="archive-manager"] floating enable, border normal
 for_window [class="Gloobus-preview"] floating enable, border none
 for_window [class="Codex"] floating enable, border normal
 for_window [class="sublime_text"] border none
 for_window [class="Pick"] floating enable
+for_window [class="xpad"] floating enable, border none 
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -117,8 +126,8 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+1 workspace $workspace1
 bindsym $mod+2 workspace $workspace2
 bindsym $mod+3 workspace $workspace3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
+bindsym $mod+4 workspace $workspace4
+bindsym $mod+5 workspace $workspace5
 bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
@@ -129,8 +138,8 @@ bindsym $mod+0 workspace 10
 bindsym $mod+Shift+1 move container to workspace $workspace1
 bindsym $mod+Shift+2 move container to workspace $workspace2
 bindsym $mod+Shift+3 move container to workspace $workspace3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+4 move container to workspace $workspace4
+bindsym $mod+Shift+5 move container to workspace $workspace5
 bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
@@ -173,8 +182,13 @@ bindsym $mod+r mode ""
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command  i3blocks -c ~/.files/.i3blocks
-}
+       status_command  i3blocks -c ~/dotfiles/.i3blocks
+	colors {
+	 background #2d2d2d
+	 inactive_workspace #2d2d2d #2d2d2d #ffffff
+	 separator #2d2d2d
+	  }
+}	
 
 # Border/gap stuff
 hide_edge_borders both
@@ -184,16 +198,26 @@ smart_gaps on
 gaps inner 8
 
 # Startup programs
+exec --no-startup-id xfce4-power-manager
 exec --no-startup-id dunst
-exec_always --no-startup-id feh --bg-scale ~/wall.png
+exec_always --no-startup-id feh --bg-scale ~/Pictures/wall.png
 exec_always --no-startup-id compton -f --config ~/.files/compton.conf
 exec --no-startup-id nm-applet
 exec --no-startup-id redshift -l 41.6725:-86.255278
 
-# volume control (Win + F2 or Win + F3)
-bindcode $mod+68 exec amixer set Master 5%-
-bindcode $mod+69 exec amixer set Master 5%+
-# Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle # mute sound
 
+# Sreen brightness controls
+bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # decrease screen brightness
+
+# Touchpad controls
+bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
+
+# Media player controls
+bindsym XF86AudioPlay exec playerctl play
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous

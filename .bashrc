@@ -11,7 +11,7 @@
 shopt -s checkwinsize
 
 # script for powerline
-. ~/.files/powerline/bindings/bash/powerline.sh
+. ~/.files/powerline/bindings/zsh/powerline.zsh
 
 # set variable identifying the chroot you work in (used in the prompt below)
 if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
@@ -71,8 +71,6 @@ if [ -x /usr/lib/command-not-found -o -x /usr/share/command-not-found/command-no
 fi
 
 alias weather='curl wttr.in'
-alias gcalcli='gcalcli calm'
-
 export LS_OPTIONS='--classify --group-directories-first --color=auto'
 eval "`dircolors`"
 alias ls='ls $LS_OPTIONS'

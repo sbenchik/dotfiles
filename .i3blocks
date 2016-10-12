@@ -28,13 +28,12 @@ command=/usr/share/i3blocks/weather 46616
 interval=60
 
 [volume]
-label=
-#label=♪
+label=♪ 
 instance=Master
 #instance=PCM
 command=/usr/share/i3blocks/volume
 interval=5
-signal=10
+#signal=5
 
 #[memory]
 #label=MEM
@@ -61,7 +60,7 @@ signal=10
 #color=#00FF00
 #interval=10
 
-[ethernet]
+#[ethernet]
 #label=E
 #instance=eth0
 #instance=enp0s25
@@ -80,12 +79,22 @@ signal=10
 #command=/usr/share/i3blocks/load_average
 #interval=10
 
+#[gmail]
+#label= 
+#command=/usr/share/i3blocks/gmail
+#interval=60
+
 [battery]
 label=
 #label=⚡
 command=/usr/share/i3blocks/battery
 interval=30
 
+[battery2]
+label=
+command=/usr/share/i3blocks/battery2
+interval=30
+
 [time]
-command=date '+%b %d %I:%M %p'
+command=date '+%b %d %l:%M %p'
 interval=60
