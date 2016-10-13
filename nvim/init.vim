@@ -66,7 +66,7 @@ noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
-"Map nerd tree to F4
+"Map nerd tree to control-T
 map <c-t> :NERDTreeToggle<CR>
 
 "Automatically show hidden files
