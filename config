@@ -45,6 +45,10 @@ bindsym $mod+m exec galculator
 bindsym $mod+i exec ~/Downloads/idea-IU-163.7743.44/bin/idea.sh 
 bindsym $mod+j exec java -jar /home/steve/Dropbox/School/CS180/Projects/Psych/server/PsychServer/Psych-client.jar 
 
+# cycle through workspaces using left/right arrows
+bindsym $mod+Right workspace next
+bindsym $mod+Left workspace prev
+
 # kill focused window
 bindsym $mod+shift+q kill
 
@@ -209,6 +213,7 @@ exec --no-startup-id dunst
 exec_always --no-startup-id feh --bg-scale ~/Pictures/wall.png
 exec_always --no-startup-id compton -f --config ~/dotfiles/compton.conf
 exec --no-startup-id nm-applet
+exec --no-startup-id synapse
 exec --no-startup-id redshift -l 41.6725:-86.255278
 exec --no-startup-id dropbox
 
