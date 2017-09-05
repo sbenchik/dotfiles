@@ -20,7 +20,7 @@ set $urgent-bg-color		"#c3a600"
 # name workspaces
 set $workspace1 "1: "
 set $workspace2 "2: "
-set $workspace3 "3: "
+set $workspace3 "3: "
 set $workspace4 "4: "
 set $workspace5 "5: "
 
@@ -210,7 +210,7 @@ gaps inner 8
 # Startup programs
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id dunst
-exec_always --no-startup-id feh --bg-scale ~/Pictures/wall.png
+exec_always --no-startup-id feh --bg-scale ~/Pictures/nightblocks.png
 exec_always --no-startup-id compton -f --config ~/dotfiles/compton.conf
 exec --no-startup-id nm-applet
 exec --no-startup-id synapse

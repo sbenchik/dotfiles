@@ -1,0 +1,4 @@
+2017/07/23 16:11:20 INFO  13849/tui_get_stty_erase:1693: stty/termios:erase=
+2017/07/23 16:11:20 INFO  13849/tui_tk_ti_getstr:1710: libtermkey:kbs=
+2017/07/23 16:11:20 INFO  13849/tui_tk_ti_getstr:1715: libtermkey:kdch1=[3~
+2017/07/23 16:11:20 INFO  13849/main:549: starting main loop
