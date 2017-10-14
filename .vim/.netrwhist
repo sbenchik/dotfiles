@@ -1,0 +1,6 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/usr/share/i3blocks'
+let g:netrw_dirhist_2='/home/steve/.config/i3'
+let g:netrw_dirhist_3='/usr/share/lightdm/lightdm.conf.d'
+let g:netrw_dirhist_4='/home/steve/SR9/Soft Remix-iOS8.theme'

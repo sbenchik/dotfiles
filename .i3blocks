@@ -24,7 +24,7 @@
 separator_block_width=15
 
 [weather]
-command=/usr/share/i3blocks/weather 46616
+command=/usr/share/i3blocks/weather 47906
 interval=60
 
 [volume]
@@ -85,15 +85,16 @@ interval=5
 #interval=60
 
 [battery]
-label=
+#label=
 #label=⚡
 command=/usr/share/i3blocks/battery
+markup=pango
 interval=30
 
-[battery2]
-label=
-command=/usr/share/i3blocks/battery2
-interval=30
+#[battery2]
+#label=
+#command=/usr/share/i3blocks/battery2
+#interval=30
 
 [time]
 command=date '+%b %d %l:%M %p'

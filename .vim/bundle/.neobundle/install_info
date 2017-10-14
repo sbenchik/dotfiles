@@ -1,0 +1,2 @@
+3.0
+{'vim-javascript-syntax': {'checked_time': 1483405564, 'installed_uri': 'https://github.com/jelera/vim-javascript-syntax.git', 'installed_path': '/home/steve/.vim/bundle/vim-javascript-syntax', 'revisions': {}, 'updated_time': '1479152318'}, 'neobundle.vim': {'checked_time': 1483405564, 'installed_uri': 'https://github.com/Shougo/neobundle.vim.git', 'installed_path': '/home/steve/.vim/bundle/neobundle.vim', 'revisions': {}, 'updated_time': '1476488244'}}
