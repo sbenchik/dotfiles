@@ -1,0 +1,75 @@
+{
+	"name": "es-quotes",
+	"version": "0.2.6",
+	"publisher": "vilicvane",
+	"displayName": "ECMAScript Quotes Transformer",
+	"description": "Transform quotes of ECMAScript string literals.",
+	"icon": "images/icon.png",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/vilic/vscode-es-quotes.git"
+	},
+	"engines": {
+		"vscode": "^0.10.0"
+	},
+	"activationEvents": [
+		"onCommand:esQuotes.transformToTemplateString",
+		"onCommand:esQuotes.transformToNormalString",
+		"onCommand:esQuotes.transformBetweenSingleDoubleQuotes",
+		"onCommand:esQuotes.transformBetweenQuotes"
+	],
+	"main": "./bld/src/extension",
+	"contributes": {
+		"configuration": {
+			"type": "object",
+			"title": "ES Quotes Configuration",
+			"properties": {
+				"esQuotes.defaultQuote": {
+					"type": "string",
+					"description": "Default normal quote, can be ' or \"."
+				}
+			}
+		},
+		"commands": [
+			{
+				"command": "esQuotes.transformToTemplateString",
+				"title": "Transform to Template String",
+				"category": "ES Quotes"
+			},
+			{
+				"command": "esQuotes.transformToNormalString",
+				"title": "Transform to Normal String",
+				"category": "ES Quotes"
+			},
+			{
+				"command": "esQuotes.transformBetweenSingleDoubleQuotes",
+				"title": "Transform between Single and Double Quotes",
+				"category": "ES Quotes"
+			},
+			{
+				"command": "esQuotes.transformBetweenQuotes",
+				"title": "Transform between Single, Double and Template Quotes",
+				"category": "ES Quotes"
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "tsc -p ./",
+		"compile": "tsc -watch -p ./",
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"test": "node ./node_modules/vscode/bin/test"
+	},
+	"devDependencies": {
+		"vscode": "^1.0.0",
+		"mocha": "^2.3.3",
+		"@types/node": "^6.0.40",
+		"typescript": "^2.0.3",
+		"@types/mocha": "^2.2.32"
+	},
+	"dependencies": {},
+	"__metadata": {
+		"id": "4cf94800-a066-464e-a4e0-97f2927ebca2",
+		"publisherId": "f2c31c25-ddb4-410d-a9f6-76c9ec2650d1",
+		"publisherDisplayName": "vilicvane"
+	}
+}

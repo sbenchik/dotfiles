@@ -1,0 +1,81 @@
+{
+	"name": "javac-linter",
+	"displayName": "Java Linter",
+	"description": "Java Linter for VS Code",
+	"version": "1.2.6",
+	"icon": "images/icon.png",
+	"publisher": "faustinoaq",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/faustinoaq/vscode-javac-linter"
+	},
+	"bugs": "https://github.com/faustinoaq/vscode-javac-linter/issues",
+	"engines": {
+		"vscode": "^1.5.0"
+	},
+	"galleryBanner": {
+		"color": "#da2f30",
+		"theme": "dark"
+	},
+	"keywords": [
+		"java",
+		"lint",
+		"error",
+		"javac"
+	],
+	"categories": [
+		"Linters"
+	],
+	"activationEvents": [
+		"onLanguage:java"
+	],
+	"main": "./out/src/extension",
+	"contributes": {
+		"configuration": {
+			"type": "object",
+			"title": "Javac Linter configuration",
+			"properties": {
+				"javac-linter.enable": {
+					"type": "boolean",
+					"default": true,
+					"description": "enable/disable the java-linter without restart."
+				},
+				"javac-linter.javac": {
+					"type": "string",
+					"default": "javac",
+					"description": "Location of Java compiler executable."
+				},
+				"javac-linter.classpath": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					},
+					"description": "Location of Java classpath, first path is used as class destination."
+				},
+				"javac-linter.maxNumberOfProblems": {
+					"type": "number",
+					"default": 20,
+					"description": "Controls the maximum number of problems produced by the server."
+				}
+			}
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "node ./node_modules/vscode/bin/compile",
+		"compile": "node ./node_modules/vscode/bin/compile -watch -p ./",
+		"postinstall": "node ./node_modules/vscode/bin/install"
+	},
+	"devDependencies": {
+		"typescript": "^1.8.9",
+		"vscode": "^0.11.0"
+	},
+	"dependencies": {
+		"vscode-languageclient": "^2.2.1"
+	},
+	"__metadata": {
+		"id": "7b672217-e3f9-4ae6-a2f2-2ae4a63af838",
+		"publisherId": "1575fd66-71ab-423c-a58d-5aadaa8404dd",
+		"publisherDisplayName": "Faustino Aguilar"
+	}
+}

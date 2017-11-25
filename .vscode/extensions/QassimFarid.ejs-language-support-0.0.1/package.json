@@ -1,0 +1,40 @@
+{
+	"name": "ejs-language-support",
+	"displayName": ".ejs",
+	"description": "EJS language support for Visual Studio Code, generated from gregory-m's (github) TextMate bundle",
+	"version": "0.0.1",
+	"publisher": "QassimFarid",
+	"engines": {
+		"vscode": "^0.10.1"
+	},
+	"categories": [
+		"Languages"
+	],
+	"contributes": {
+		"languages": [
+			{
+				"id": "ejs",
+				"aliases": [
+					"EJS",
+					"ejs"
+				],
+				"extensions": [
+					".ejs"
+				],
+				"configuration": "./ejs.configuration.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "ejs",
+				"scopeName": "text.html.js",
+				"path": "./syntaxes/ejs.tmLanguage"
+			}
+		]
+	},
+	"__metadata": {
+		"id": "290c5f3f-fc96-451e-ba22-0b17cb2dac8a",
+		"publisherId": "dc1c277d-f2e7-4df5-b18d-54d2e03beceb",
+		"publisherDisplayName": "Qassim Farid"
+	}
+}
