@@ -32,7 +32,7 @@ label=♪
 instance=Master
 #instance=PCM
 command=/usr/share/i3blocks/volume
-interval=5
+interval=1
 #signal=5
 
 #[memory]
